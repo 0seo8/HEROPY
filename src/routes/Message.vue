@@ -1,0 +1,127 @@
+<template>
+  <div
+    v-for="(msg, index) in msgs"
+    :key="msg.name"
+    class="container">
+    <div 
+      v-if="index%2===0"
+      class="message-blue box">
+      <p class="message-content">
+        {{ msg.context }}
+      </p>
+      <div class="message-timestamp">
+        {{ msg.name }}
+      </div>
+    </div>
+    
+    <div
+      v-else
+      class="message-orange box">
+      <p class="message-content">
+        {{ msg.context }}
+      </p>
+      <div class="message-timestamp">
+        {{ msg.name }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import msgs from './msg.js'
+export default {
+  data() {
+    return {
+      msgs,
+    }
+  },
+  computed: {
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+.container {
+    width: 70vw;
+    padding: 10px;
+    .box {
+      position: relative;
+      padding: 1rem;
+      width: 300px;
+      height: 100px;
+      font: 400 1.2em 'Open Sans', sans-serif;
+      border-radius: 10px;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .message-blue {
+      margin-left: 20px;
+      background-color: #A8DDFD;
+      border: 1px solid #97C6E3;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 15px solid #A8DDFD;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        top: 0;
+        left: -15px;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 17px solid #97C6E3;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        top: -1px;
+        left: -17px;
+      }
+    }
+    .message-orange {
+      margin-left: calc(100% - 240px);
+      background-color: #f8e896;
+      border: 1px solid #dfd087;
+      &::after {
+        border-bottom: 15px solid #f8e896;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        bottom: 0;
+        right: -15px;
+      }
+      &::before {
+        border-bottom: 17px solid #dfd087;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        bottom: -1px;
+        right: -17px;
+     }
+     &::after, ::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+     }
+    }
+  .message-content {
+      padding: 0;
+      margin: 0;
+  }
+  .message-timestamp {
+      position: absolute;
+      font-size: 1rem;
+      font-weight: 300;
+      bottom: 1rem;
+      right: 1rem;
+  }
+}
+
+
+
+
+</style>
