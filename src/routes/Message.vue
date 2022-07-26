@@ -14,6 +14,11 @@
       </div>
     </div>
   </div>
+  <div
+    v-if="isLoading"
+    class="spinner-border text-danger"
+    role="status">
+  </div>
 </template>
 
 <script>
@@ -24,6 +29,7 @@ export default {
   data() {
     return {
       msgs: {},
+      isLoading: false
     }
   },
   created() {
@@ -31,8 +37,15 @@ export default {
   },
   methods: {
     async getMessage(){
-      const { data } = await axios.get('https://asia-northeast3-kdt-test-97b7e.cloudfunctions.net/api/todo')
-      this.msgs = data.map(todo => ({ context: todo.title, name: '익명' }))
+      try {
+        this.isLoading=true
+        const { data } = await axios.get('https://asia-northeast3-kdt-test-97b7e.cloudfunctions.net/api/todo')
+        this.msgs = data.map(todo => ({ context: todo.title, name: '익명' }))
+      } catch(err) {
+        console.log(err)
+      } finally {
+        this.isLoading=false
+      }
     }
   },
 }
@@ -45,6 +58,7 @@ export default {
     width: 70vw;
     padding: 10px;
     padding-bottom: 2px;
+    display: relative;
     .box {
       position: relative;
       padding: 1rem;
@@ -120,6 +134,11 @@ export default {
   }
 }
 
+.spinner-border {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+}
 
 
 

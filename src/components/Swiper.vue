@@ -65,7 +65,11 @@
   <div class="textbox">
     <p class="center">
       마지막으로..강사님! 4개월 동안 수고 많으셨습니다 <br />
-      다음에 만나서 밥이라도 한 끼 같이 하고 싶어요~~(밥 사주세요😁)
+      다음에 만나서 밥이라도 한 끼 같이 하고 싶어요~~(밥 사주세요😁) <br />
+
+      <sapn class="car">
+        From.
+      </sapn>
     </p>
   </div>
 </template>
@@ -204,6 +208,19 @@ export default defineComponent({
       font-size: 18px;
     }
   }
-  
+  .car {
+    position: relative;
+    &:before {
+      content: "";
+      background-image: url(https://www.hyundai.com/static/images/logo.png);
+      background-size: cover;
+      display: block;
+      width: 92px;
+      height: 41px;
+      position: absolute;
+      left: 48px;
+      top: -9px;
+    }
+  }
 }
 </style>
