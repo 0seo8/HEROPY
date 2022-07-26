@@ -138,6 +138,7 @@ export default {
   position: absolute;
   top: 1%;
   left: 50%;
+  z-index: 11;
 }
 
 
