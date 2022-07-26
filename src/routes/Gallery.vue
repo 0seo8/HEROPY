@@ -1,20 +1,46 @@
 <template>
-  <div>
-    <img
-      src="https://cdn.discordapp.com/attachments/976695346728173578/999944082287763456/heropy3.png"
-      alt="" />
-    <img
-      src="https://cdn.discordapp.com/attachments/976695346728173578/999944082702995527/heropy4.JPG"
-      alt="" />  
-    <img
-      src="https://cdn.discordapp.com/attachments/976695346728173578/999944081960603648/heropy2.jpg"
-      alt="" />
-    <p>3개월 동안 너무 감사했습니다 강사님! </p>
-  </div>
+  <section>
+    <div class="box">
+      <h2>강사님과 함께하는 러브 액츄얼리!!!!!😍</h2>
+      <video
+        autoplay
+        loop
+        muted
+        src="/assets/heropy_vedio.mp4"
+        controls>
+      </video>
+      <h2>🪄😊 감동의 장면 다시 보기!!! 😭✨</h2>
+    </div>
+  </section>
 </template>
 
 <style scoped lang="scss">
-  div {
-    margin-top: 3rem;
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  video {
+    display: inline-block;
+    width: 90%;
+    padding-left: 5%;
   }
+  .box {
+    padding-top: 16px;
+    border: 2px solid #ffdd79;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+    border-radius: 10px;
+    padding-bottom: 5%;
+    box-shadow: 5px 5px 5px #decd9b;
+
+    h2 {
+      margin: 10px 0 10px;
+      text-align: center;
+      color: #fd9023;
+      font-weight: 700;
+    }
+  }
+}
 </style>

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Home from './Home.vue'
 import Gallery from './Gallery.vue'
 import Message from './Message.vue'
 import Letters from './Letters.vue'
@@ -9,11 +10,15 @@ export default createRouter({
  scrollBehavior: () => ({top: 0}),
   routes: [
     {
+      path: '/',
+      component: Home
+    },
+    {
       path: '/letters',
       component: Letters
     },
     {
-      path: '/gallery',
+      path: '/vedio',
       component: Gallery
     },
     {

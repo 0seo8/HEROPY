@@ -1,22 +1,11 @@
 <template>
   <div
     v-for="(msg, index) in msgs"
-    :key="msg.name"
+    :key="index"
     class="container">
     <div 
-      v-if="index%2===0"
-      class="message-blue box">
-      <p class="message-content">
-        {{ msg.context }}
-      </p>
-      <div class="message-timestamp">
-        {{ msg.name }}
-      </div>
-    </div>
-    
-    <div
-      v-else
-      class="message-orange box">
+      class="box"
+      :class="[ index % 2 === 0 ? 'message-blue' : 'message-orange' ]">
       <p class="message-content">
         {{ msg.context }}
       </p>
@@ -28,15 +17,24 @@
 </template>
 
 <script>
-import msgs from './msg.js'
+import axios from 'axios'
+// import msgs from './msg.js'
+
 export default {
   data() {
     return {
-      msgs,
+      msgs: {},
     }
   },
-  computed: {
-  }
+  created() {
+    this.getMessage()
+  },
+  methods: {
+    async getMessage(){
+      const { data } = await axios.get('https://asia-northeast3-kdt-test-97b7e.cloudfunctions.net/api/todo')
+      this.msgs = data.map(todo => ({ context: todo.title, name: '익명' }))
+    }
+  },
 }
 </script>
 
@@ -46,11 +44,12 @@ export default {
 .container {
     width: 70vw;
     padding: 10px;
+    padding-bottom: 2px;
     .box {
       position: relative;
       padding: 1rem;
       width: 300px;
-      height: 100px;
+      min-height: 100px;
       font: 400 1.2em 'Open Sans', sans-serif;
       border-radius: 10px;
       text-align: left;
