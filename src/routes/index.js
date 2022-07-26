@@ -18,7 +18,7 @@ export default createRouter({
       component: Letters
     },
     {
-      path: '/vedio',
+      path: '/video',
       component: Gallery
     },
     {
