@@ -54,7 +54,7 @@ export default {
         },
         {
           name: 'slideshow',
-          href: '/vedio'
+          href: '/video'
         },
         {
           name: 'photo_library',
