@@ -6,7 +6,7 @@
         autoplay
         loop
         muted
-        src="/assets/heropy_vedio.mp4"
+        src="/assets/heropy_vedio_last.mp4"
         controls>
       </video>
       <h2>🪄😊 감동의 장면 다시 보기!!! 😭✨</h2>

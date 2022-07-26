@@ -13,7 +13,6 @@
 *.avi                binary
 *.flv                binary
 *.mov                binary
-*.mp4 filter=lfs diff=lfs merge=lfs -text
 *.mpeg               binary
 *.mpg                binary
 *.ogv                binary
@@ -33,4 +32,3 @@
 *.tif                binary
 *.tiff               binary
 *.webp               binary
-public/assets/heropy_vedio.mp4 filter=lfs diff=lfs merge=lfs -text
